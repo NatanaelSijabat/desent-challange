@@ -2,6 +2,18 @@
 
 Interactive workspace configurator, faithful to the provided sketch.
 
+## Approach
+
+I started from the sketch hierarchy (header → left picks → center preview → right accessories → bottom categories → rental summary) and made one `WorkspaceState` (`desk`, `chair`, `accessories[]`, `extras[]`) in `app/page.tsx` the single source of truth. All catalog data and pricing live in `lib/data.ts` via `monthlyTotal()`, so every click updates the live €/mo pill, the 3D scene, and the summary modal instantly. The 3D preview is fully procedural — one shared room with switchable desks/chairs/accessories/props, no external model assets.
+
+## Tech choices
+
+Required stack: **Next.js (App Router)** for routing/prerendering, **Tailwind CSS v4** (CSS-first) for styling, **Vercel** for zero-config deployment. For 3D I used **Three.js via @react-three/fiber + drei** (client-only `ssr:false` import to keep first-load JS ~109 kB), with plain React `useState` instead of a store library since the state shape is tiny, and `localStorage` only for theme persistence. No UI kit, animation, or DnD libraries — the sketch didn't need them.
+
+## What I'd improve with more time
+
+Persist the workspace to URL params + `localStorage`, add quantities/removal from the summary, polish mobile/responsive layout, improve accessibility (focus states, keyboard controls, `prefers-reduced-motion` for the 3D orbit), add Vitest/Playwright coverage, and wire the `Rent Your Setup!` CTA to a real checkout API instead of the current mock confirmation state.
+
 ## Tech stack (required)
 
 - **Next.js** (App Router) — framework
