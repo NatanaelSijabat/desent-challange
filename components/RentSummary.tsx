@@ -16,7 +16,7 @@ export default function RentSummary({ open, state, onClose, onReset }: Props) {
 
   if (!open) return null;
 
-  const items = [state.desk, state.chair, ...state.accessories];
+  const items = [state.desk, state.chair, ...state.accessories, ...state.extras];
   const total = monthlyTotal(state);
 
   const close = () => {
@@ -35,7 +35,7 @@ export default function RentSummary({ open, state, onClose, onReset }: Props) {
         role="dialog"
         aria-modal="true"
         aria-label="Rental summary"
-        className="w-full max-w-[520px] rounded-[18px] bg-white p-6 shadow-[0_24px_60px_rgba(0,0,0,0.25)]"
+        className="w-full max-w-[520px] rounded-[18px] bg-surface p-6 shadow-[0_24px_60px_rgba(0,0,0,0.25)]"
       >
         {!confirmed ? (
           <>
@@ -98,7 +98,7 @@ export default function RentSummary({ open, state, onClose, onReset }: Props) {
                   onReset();
                   onClose();
                 }}
-                className="cursor-pointer rounded-full border border-ink bg-ink px-3.5 py-2 text-sm font-semibold text-white transition active:scale-95"
+                className="cursor-pointer rounded-full border border-ink bg-ink px-3.5 py-2 text-sm font-semibold text-white transition active:scale-95 dark:border-accent dark:bg-accent"
               >
                 Build another setup
               </button>

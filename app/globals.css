@@ -1,17 +1,44 @@
 @import "tailwindcss";
 
-@theme {
-  --color-cream: #faf7f2;
-  --color-ink: #1e1b16;
-  --color-muted: #7a7264;
-  --color-line: #e9dfd0;
-  --color-accent: #e4572e;
-  --color-accent-dark: #c74320;
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --wb-bg: #faf7f2;
+  --wb-surface: #ffffff;
+  --wb-soft: #fff6f0;
+  --wb-ink: #1e1b16;
+  --wb-muted: #7a7264;
+  --wb-line: #e9dfd0;
+  --wb-accent: #e4572e;
+  --wb-accent-dark: #c74320;
+}
+
+.dark {
+  --wb-bg: #0c0b10;
+  --wb-surface: #15141b;
+  --wb-soft: #221a33;
+  --wb-ink: #f2eefb;
+  --wb-muted: #a7a1bd;
+  --wb-line: #2b2836;
+  --wb-accent: #a855f7;
+  --wb-accent-dark: #7c3aed;
+}
+
+@theme inline {
+  --color-cream: var(--wb-bg);
+  --color-surface: var(--wb-surface);
+  --color-soft: var(--wb-soft);
+  --color-ink: var(--wb-ink);
+  --color-muted: var(--wb-muted);
+  --color-line: var(--wb-line);
+  --color-accent: var(--wb-accent);
+  --color-accent-dark: var(--wb-accent-dark);
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
-  background-color: var(--color-cream);
-  color: var(--color-ink);
+  background-color: var(--wb-bg);
+  color: var(--wb-ink);
   font-family: var(--font-sans);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }

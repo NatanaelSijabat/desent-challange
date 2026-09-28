@@ -1,11 +1,10 @@
 import type { WorkspaceState } from "@/lib/data";
-import { ACCESSORIES, CHAIRS, DESKS } from "@/lib/data";
+import { CHAIRS, DESKS } from "@/lib/data";
 
 type Props = {
   state: WorkspaceState;
   onSelectDesk: (id: string) => void;
   onSelectChair: (id: string) => void;
-  onToggleAccessory: (id: string) => void;
 };
 
 function OptionCard({
@@ -28,9 +27,9 @@ function OptionCard({
       data-testid={testId}
       onClick={onClick}
       aria-pressed={selected}
-      className={`flex w-full cursor-pointer items-center gap-2.5 rounded-xl border-[1.5px] bg-white px-3 py-2.5 text-left transition active:scale-[0.98] ${
+      className={`flex w-full cursor-pointer items-center gap-2.5 rounded-xl border-[1.5px] bg-surface px-3 py-2.5 text-left transition active:scale-[0.98] ${
         selected
-          ? "border-accent bg-[#fff6f0] shadow-[inset_0_0_0_1px_var(--color-accent)]"
+          ? "border-accent bg-soft shadow-[inset_0_0_0_1px_var(--wb-accent)]"
           : "border-line"
       }`}
     >
@@ -39,7 +38,7 @@ function OptionCard({
         className={`h-4 w-4 shrink-0 rounded-full border-2 ${
           selected
             ? "border-accent bg-accent shadow-[inset_0_0_0_3px_white]"
-            : "border-[#c9bfae]"
+            : "border-muted"
         }`}
       />
       <span className="flex flex-1 flex-col">
@@ -73,12 +72,11 @@ export default function ProductPanel({
   state,
   onSelectDesk,
   onSelectChair,
-  onToggleAccessory,
 }: Props) {
   return (
     <aside
       aria-label="Product selection"
-      className="flex flex-col gap-[18px] rounded-2xl border border-line bg-white p-4"
+      className="flex flex-col gap-[18px] rounded-2xl border border-line bg-surface p-4"
     >
       <Section title="Desks" hint="Pick 1 desk">
         {DESKS.map((d) => (
@@ -108,19 +106,10 @@ export default function ProductPanel({
         ))}
       </Section>
 
-      <Section title="Accessories" hint="Add as many as you like">
-        {ACCESSORIES.map((a) => (
-          <OptionCard
-            key={a.id}
-            testId={`acc-${a.id}`}
-            selected={state.accessories.includes(a.id)}
-            name={a.name}
-            meta={a.desc}
-            price={a.price}
-            onClick={() => onToggleAccessory(a.id)}
-          />
-        ))}
-      </Section>
+      <p className="rounded-xl border border-dashed border-line px-3 py-2.5 text-[13px] text-muted">
+        Monitors, lamp & extras live in <strong className="text-ink">Add accessories</strong> on
+        the right →
+      </p>
     </aside>
   );
 }
