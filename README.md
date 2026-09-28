@@ -13,8 +13,8 @@ or DnD libraries — the sketch doesn't need them.
 
 Layout (matches sketch hierarchy):
 - **Header/title area** — `monis.rent` brand + "Build your rental workspace" + live €/mo pill + `Rent Your Setup!` CTA
-- **Left panel** — Desks (2), Chairs (2), Accessories (Monitor / Lamp / Plant)
-- **Center** — Live visual workspace preview (SVG scene: desk, chair, monitor, lamp, plant all render/disappear)
+- **Left panel** — Desks (4: Oak, Standing, Walnut, Compact), Chairs (4: Ergo, Lounge, Wood, Racer), Accessories (Monitor, Laptop, Lamp, Plant, Headphones, Speaker)
+- **Center** — Live visual workspace preview (SVG scene: every desk, chair, and accessory renders/disappears on select)
 - **Right panel** — Accessory Add/Remove actions + `Ready to Rent?` card with `Rent Your Setup!` CTA
 - **Bottom** — `Coffee Station`, `Outdoor Gear`, `Relax Zone`, `Garage Space` category cards (presentational, per sketch)
 - **Summary** — `RentSummary` modal with selected desk, chair, accessories, item count + monthly total, and a confirmation state. No payment integration (by design).
@@ -78,9 +78,9 @@ gh api repos/<owner>/desent-challange/collaborators/desent-bot -X PUT -f permiss
 
 ## Validation checklist
 
-- [x] Desk option 1 + 2 switch the visual desk
-- [x] Chair option 1 + 2 switch the visual chair
-- [x] Monitor / Lamp / Plant add + remove visually
+- [x] All 4 desks switch the visual desk (oak / standing + drawer / walnut wide / compact X-legs)
+- [x] All 4 chairs switch the visual chair (ergo / lounge / wood slats / gaming racer)
+- [x] All 6 accessories add + remove visually (monitor, laptop, lamp, plant, headphones stand, shelf speaker)
 - [x] Selected state is obvious (highlight + chips + Add/Remove labels)
 - [x] `Rent Your Setup!` opens summary with selected setup + totals
 - [x] Confirmation state after "Confirm rental"

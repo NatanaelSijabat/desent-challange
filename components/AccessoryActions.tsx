@@ -10,8 +10,11 @@ type Props = {
 
 const ICONS: Record<string, string> = {
   monitor: "🖥️",
+  laptop: "💻",
   lamp: "💡",
   plant: "🪴",
+  headphones: "🎧",
+  speaker: "🔊",
 };
 
 export default function AccessoryActions({ state, onToggleAccessory, onRent, onClear }: Props) {
