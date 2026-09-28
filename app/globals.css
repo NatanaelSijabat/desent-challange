@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #faf7f2;
+  --color-ink: #1e1b16;
+  --color-muted: #7a7264;
+  --color-line: #e9dfd0;
+  --color-accent: #e4572e;
+  --color-accent-dark: #c74320;
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
